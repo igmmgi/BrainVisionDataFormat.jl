@@ -28,7 +28,6 @@ BrainVisionDataFormat.read_brainvision
 ```@docs
 BrainVisionDataFormat.read_brainvision_header
 BrainVisionDataFormat.read_brainvision_markers
-BrainVisionDataFormat.read_brainvision_data
 ```
 
 ## Utility Functions

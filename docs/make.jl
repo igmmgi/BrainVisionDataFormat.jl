@@ -23,6 +23,6 @@ makedocs(
 
 deploydocs(;
     repo = "github.com/igmmgi/BrainVisionDataFormat.jl.git",
-    versions = ["stable" => "v^", "v#.#", "dev" => "master"],
+    versions = ["stable" => "v^", "v#.#", "dev" => "main"],
     push_preview = true,
 )
