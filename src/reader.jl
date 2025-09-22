@@ -377,12 +377,10 @@ function _process_raw_data!(data::Matrix{Float64}, raw_data::Vector{UInt8}, head
 end
 
 function _process_raw_values!(data::Matrix{Float64}, raw_values::AbstractVector, header::BrainVisionHeader, nsamples::Int)
-    # Process row by row (sample by sample) for better cache locality
     @inbounds for j in 1:nsamples
         base_idx = (j - 1) * header.NumberOfChannels
         for i in 1:header.NumberOfChannels
-            idx = base_idx + i
-            data[j, i] = Float64(raw_values[idx]) * header.resolution[i]
+            data[j, i] = Float64(raw_values[base_idx + i]) * header.resolution[i]
         end
     end
 end
