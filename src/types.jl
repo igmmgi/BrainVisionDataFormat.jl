@@ -81,7 +81,7 @@ end
 Container for complete BrainVision data including EEG data, markers, and header metadata.
 
 # Fields
-- `data::Union{Matrix{Float64}, Nothing}`: EEG data matrix (channels × samples)
+- `data::Union{Matrix{Float64}, Nothing}`: EEG data matrix (samples × channels)
 - `markers::Vector{BrainVisionMarker}`: Array of marker events
 - `header::Union{BrainVisionHeader, Nothing}`: Header information
 - `filename::String`: Source filename

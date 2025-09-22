@@ -95,8 +95,8 @@
                 data = read_brainvision(joinpath(test_data_dir, "test"))
                 
                 # Check that data dimensions match header
-                @test size(data.data, 1) == header.NumberOfChannels
-                @test size(data.data, 2) == header.nSamples
+                @test size(data.data, 2) == header.NumberOfChannels
+                @test size(data.data, 1) == header.nSamples
             end
         end
         
@@ -111,7 +111,7 @@
                 # Check that all marker samples are within data range
                 for marker in data.markers
                     @test marker.sample >= 1
-                    @test marker.sample <= size(data.data, 2)
+                    @test marker.sample <= size(data.data, 1)
                 end
             end
         end

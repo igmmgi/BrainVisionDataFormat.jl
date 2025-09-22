@@ -86,8 +86,8 @@
                 @test data.header.NumberOfChannels == 2
                 
                 # Test EEG data
-                @test size(data.data, 1) == 2  # 2 channels
-                @test size(data.data, 2) > 0   # Should have samples
+                @test size(data.data, 2) == 2  # 2 channels
+                @test size(data.data, 1) > 0   # Should have samples
                 
                 # Test markers
                 @test length(data.markers) == 10

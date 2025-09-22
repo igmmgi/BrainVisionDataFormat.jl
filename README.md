@@ -36,7 +36,7 @@ using BrainVisionDataFormat
 data = read_brainvision("experiment")
 
 # Access EEG data and metadata
-eeg_data = data.data  # Matrix{Float64} (channels × samples)
+eeg_data = data.data  # Matrix{Float64} (samples × channels)
 header = data.header      # BrainVisionHeader with all metadata
 markers = data.markers    # Vector{BrainVisionMarker} with events
 

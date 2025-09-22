@@ -101,7 +101,7 @@ using the format information from the provided header.
 - `header::BrainVisionHeader`: Header information containing format specifications
 
 # Returns
-- `Matrix{Float64}`: EEG data matrix (channels × samples) scaled to microvolts
+- `Matrix{Float64}`: EEG data matrix (samples × channels) scaled to microvolts
 
 # Notes
 - This is an internal function used by `read_brainvision`
@@ -133,7 +133,7 @@ function _read_brainvision_data(filename::String, header::BrainVisionHeader)::Ma
     # Initialize data matrix
     nsamples = header.nSamples
     nchans = header.NumberOfChannels
-    data = zeros(Float64, nchans, nsamples)
+    data = zeros(Float64, nsamples, nchans)
 
     # Read the data
     open(filename, "r") do file
@@ -169,7 +169,7 @@ a complete dataset object.
 data = read_brainvision("experiment")
 
 # Access components
-data = data.data  # Matrix{Float64} (channels × samples)
+data = data.data  # Matrix{Float64} (samples × channels)
 markers = data.markers    # Vector{BrainVisionMarker}
 header = data.header      # BrainVisionHeader
 
@@ -183,7 +183,7 @@ data = read_brainvision("experiment", chanindx=1:10)
 # Notes
 - The function automatically finds the corresponding .vhdr, .vmrk, and .eeg files
 - All three files must exist for successful loading
-- EEG data is returned as a matrix with dimensions (channels × samples)
+- EEG data is returned as a matrix with dimensions (samples × channels)
 - Data is automatically scaled to microvolts using resolution values from the header
 
 # See Also
@@ -377,12 +377,12 @@ function _process_raw_data!(data::Matrix{Float64}, raw_data::Vector{UInt8}, head
 end
 
 function _process_raw_values!(data::Matrix{Float64}, raw_values::AbstractVector, header::BrainVisionHeader, nsamples::Int)
-    # Process column by column (sample by sample) for better cache locality
+    # Process row by row (sample by sample) for better cache locality
     @inbounds for j in 1:nsamples
         base_idx = (j - 1) * header.NumberOfChannels
         for i in 1:header.NumberOfChannels
             idx = base_idx + i
-            data[i, j] = Float64(raw_values[idx]) * header.resolution[i]
+            data[j, i] = Float64(raw_values[idx]) * header.resolution[i]
         end
     end
 end
