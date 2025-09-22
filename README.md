@@ -15,13 +15,14 @@ Julia package for reading BrainVision EEG data files (.vhdr, .vmrk, .eeg format)
 
 ```julia
 ] # julia pkg manager
-add https://github.com/igmmgi/BrainVisionDataFormat.git # install from GitHub
+add https://github.com/igmmgi/BrainVisionDataFormat.jl.git # install from GitHub
 test BrainVisionDataFormat # optional
 ```
 
 ## File Format
 
 BrainVision files consist of three components:
+
 - **`.vhdr`**: Header file with metadata, channel information, and sampling parameters
 - **`.vmrk`**: Marker file with event/trigger information and timestamps
 - **`.eeg`**: Binary data file with EEG samples (multiple formats supported)
