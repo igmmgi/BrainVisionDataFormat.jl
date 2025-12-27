@@ -1,6 +1,6 @@
 name = "BrainVisionDataFormat"
 uuid = "a1c37e40-cd17-11e8-241b-47481c954d92"
-authors = ["igmmgi <ian.mackenzie@uni-tuebingen.de>"]
+authors = ["igmmgi <ian.mackenzie@uni-tuebingen.de>, Carolin Dudschig <carolin.dudschig@uni-tuebingen.de"]
 version = "0.1.0"
 license = "MIT"
 
