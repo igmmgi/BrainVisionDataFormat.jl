@@ -4,6 +4,7 @@
 [![Build Status](https://github.com/igmmgi/BrainVisionDataFormat.jl/workflows/Documentation/badge.svg)](https://github.com/igmmgi/BrainVisionDataFormat.jl/actions)
 [![CI](https://github.com/igmmgi/BrainVisionDataFormat.jl/workflows/Tests/badge.svg)](https://github.com/igmmgi/BrainVisionDataFormat.jl/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![DOI](https://zenodo.org/badge/1060082543.svg)](https://doi.org/10.5281/zenodo.18068211)
 
 Julia package for reading BrainVision EEG data files (.vhdr, .vmrk, .eeg format).
 
