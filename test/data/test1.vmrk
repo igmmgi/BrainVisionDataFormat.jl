@@ -1,7 +1,7 @@
 Brain Vision Data Exchange Marker File, Version 1.0
 
 [Common Infos]
-DataFile=test.eeg
+DataFile=test1.eeg
 
 [Marker Infos]
 Mk1=Stimulus,S  1,500,1,0
