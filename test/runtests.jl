@@ -3,14 +3,6 @@ using Test
 # Import the package
 using BrainVisionDataFormat
 
-# Clean up old coverage files at the start
-if Base.JLOptions().code_coverage != 0
-    println("\nCleaning up old coverage files...")
-    using Coverage
-    Coverage.clean_folder(joinpath(@__DIR__, "..", "src"))
-    Coverage.clean_folder(@__DIR__)
-end
-
 println("Running BrainVisionDataFormat.jl Test Suite")
 println("=" ^ 40)
 
